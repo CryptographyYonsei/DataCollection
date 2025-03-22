@@ -1,0 +1,23 @@
+import h5py
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 파일 경로
+file_path = r"C:\test\ASCAD_data\ASCAD_fixed.h5"
+
+# 파일 열기
+f = h5py.File(file_path, "r")
+
+# 프로파일링 트레이스 로딩 (여기서는 5개만 예시로 사용)
+profiling_traces = f["Profiling_traces/traces"][:5]
+
+# 여러 트레이스 평균 시각화
+average_trace = np.mean(profiling_traces, axis=0)
+
+plt.plot(average_trace)
+plt.title("Average of First 5 Profiling Traces")
+plt.xlabel("Sample Points")
+plt.ylabel("Amplitude")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
