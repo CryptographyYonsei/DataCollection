@@ -1,0 +1,30 @@
+import h5py
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 파일 경로
+file_path = r"C:\test\ASCAD_data\ASCAD_fixed.h5"
+
+# 파일 열기
+f = h5py.File(file_path, "r")
+
+# 프로파일링 트레이스와 라벨 로딩
+profiling_traces = f["Profiling_traces/traces"][:]
+profiling_labels = f["Profiling_traces/labels"][:]
+
+# 특정 라벨 (예: 라벨 0)의 평균 트레이스 보기
+label_to_look_for = 0
+label_indices = np.where(profiling_labels == label_to_look_for)[0]
+label_traces = profiling_traces[label_indices]
+
+# 평균 트레이스 계산
+average_trace = np.mean(label_traces, axis=0)
+
+# 시각화
+plt.plot(average_trace)
+plt.title(f"Average Trace for Label {label_to_look_for}")
+plt.xlabel("Sample Points")
+plt.ylabel("Amplitude")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
