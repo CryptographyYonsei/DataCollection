@@ -1,0 +1,5 @@
+https://github.com/ANSSI-FR/ASCAD
+위 사이트로 가서 밑으로 내리고 맨 첫번째에 있는 ATMEGA boolean masked AES 옆에 링크 타고 가면
+  https://www.data.gouv.fr/s/resources/ascad/20180530-163000/ASCAD_data.zip
+이거 다운 받고 압축 풀고 같은 폴더내에 파이썬 파일 만들어서 코드 작성하면 됨
+  
